@@ -1,0 +1,5 @@
+"E:\CLion 2018.1.5\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "E:\C projects\ProjectBalls"
+-- Found SFML 2.5.1 in E:/C projects/ProjectBalls/lib/SFML-2.5.1(32)/lib/cmake/SFML
+-- Configuring done
+-- Generating done
+-- Build files have been written to: E:/C projects/ProjectBalls/cmake-build-debug
