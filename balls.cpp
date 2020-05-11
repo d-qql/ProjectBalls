@@ -35,9 +35,11 @@ int main()
     // Задаём максимальное количество кадров в секунду
     window.setFramerateLimit(60);
 
-    // Так как sf::CircleShape занимает много памяти, создаём всего 1 экземпляр
-    sf::CircleShape circle(50.0f);
-    circle.setFillColor({ 255, 0, 0 });    
+    // Так как sf::CircleShape занимает много памяти, создаём всего 2 экземпляра для + и - зарядов
+    sf::CircleShape circleP(50.0f);
+    sf::CircleShape circleM(50.0f);
+    circleP.setFillColor({ 255, 0, 0 });
+    circleM.setFillColor({0, 0, 255});
 
     std::vector<Ball> balls;
     balls.resize(n_balls);
@@ -46,7 +48,7 @@ int main()
         balls[i].radius = 4 + rand() % 8;
         balls[i].position = { (float)(rand() % width), (float)(rand() % height) };
         balls[i].velocity = { 0, 0};
-        balls[i].mass = (float)(rand() %1 + 0.1)*balls[i].radius* balls[i].radius;                    
+        balls[i].mass = (float)(rand() %1 + 0.1)*balls[i].radius* balls[i].radius;
     }
 
     while (window.isOpen()){
@@ -125,16 +127,17 @@ int main()
 
 
                   // Используем 1 sf::CircleShape, чтобы нарисовать все шары
-            circle.setRadius(balls[i].radius);
+            balls[i].charge>=0 ? circleP.setRadius(balls[i].radius) : circleM.setRadius(balls[i].radius);
             // setOrigin - задаёт центр объекта
             // По умолчанию центр - в левом верхнем угле объекта
             // Строка ниже устанавливает центр в центре шарика
             // В дальнейшем функция, setPosition устанавливает положение шарика так, 
             // чтобы его центр был в точке balls[i].position
-            circle.setOrigin(balls[i].radius, balls[i].radius);
-            circle.setPosition(balls[i].position);
+            balls[i].charge>=0 ? circleP.setOrigin(balls[i].radius, balls[i].radius) : circleM.setOrigin(balls[i].radius, balls[i].radius);
+            balls[i].charge>=0 ? circleP.setPosition(balls[i].position) : circleM.setPosition(balls[i].position);
 
-            window.draw(circle);
+            window.draw(circleP);
+            window.draw(circleM);
 
             if (balls[i].radius > balls[i].position.y) {
                 balls[i].velocity.y = -balls[i].velocity.y;
@@ -153,42 +156,59 @@ int main()
                 balls[i].velocity.x = -balls[i].velocity.x;
             }
             //Гравитация
-            for (int i = 0; i < n_balls; i++) {
+            for (int k = 0; k < n_balls; k++) {
                 float sumx = 0;
                 float sumy = 0;
                 for (int j = 0; j < n_balls; j++) {
-                    if (i != j) {
-                        float w = (balls[i].position.x - balls[j].position.x) * (balls[i].position.x - balls[j].position.x) + (balls[i].position.y - balls[j].position.y) * (balls[i].position.y - balls[j].position.y);
-                        sumx += (balls[j].position.x - balls[i].position.x) * balls[j].mass / pow(w, 3 / 2);
-                        sumy += (balls[j].position.y - balls[i].position.y) * balls[j].mass / pow(w, 3 / 2);
+                    if (k != j) {
+                        float w = (balls[k].position.x - balls[j].position.x) * (balls[k].position.x - balls[j].position.x) + (balls[k].position.y - balls[j].position.y) * (balls[k].position.y - balls[j].position.y);
+                        sumx += (balls[j].position.x - balls[k].position.x) * balls[j].mass / pow(w, 3 / 2);
+                        sumy += (balls[j].position.y - balls[k].position.y) * balls[j].mass / pow(w, 3 / 2);
                     }
 
-                    balls[i].velocity.x += sumx * delta_t;
-                    balls[i].velocity.y += sumy * delta_t;
+                    balls[k].velocity.x += sumx * delta_t;
+                    balls[k].velocity.y += sumy * delta_t;
                 }
             }
             //Кулон
-            for (int i = 0; i < n_balls; i++) {
+            for (int k = 0; k < n_balls; k++) {
                 float sumx = 0;
                 float sumy = 0;
                 for (int j = 0; j < n_balls; j++) {
-                    if (i != j) {
-                        float w = (balls[i].position.x - balls[j].position.x) * (balls[i].position.x - balls[j].position.x) + (balls[i].position.y - balls[j].position.y) * (balls[i].position.y - balls[j].position.y);
-                        if (balls[j].charge * balls[i].charge > 0) {
-                            sumx -= (balls[j].position.x - balls[i].position.x) * balls[j].charge * balls[i].charge / pow(w, 3 / 2) / balls[i].mass;
-                            sumy -= (balls[j].position.y - balls[i].position.y) * balls[j].charge * balls[i].charge / pow(w, 3 / 2) / balls[i].mass;
+                    if (k != j) {
+                        float w = (balls[k].position.x - balls[j].position.x) * (balls[k].position.x - balls[j].position.x) + (balls[k].position.y - balls[j].position.y) * (balls[k].position.y - balls[j].position.y);
+                        if (balls[j].charge * balls[k].charge > 0) {
+                            sumx -= (balls[j].position.x - balls[k].position.x) * balls[j].charge * balls[k].charge / pow(w, 3 / 2) / balls[k].mass;
+                            sumy -= (balls[j].position.y - balls[k].position.y) * balls[j].charge * balls[k].charge / pow(w, 3 / 2) / balls[k].mass;
                         }
                         else {
-                            sumx += (balls[j].position.x - balls[i].position.x) * abs(balls[j].charge * balls[i].charge) / pow(w, 3 / 2) / balls[i].mass;
-                            sumy += (balls[j].position.y - balls[i].position.y) * abs(balls[j].charge * balls[i].charge)/ pow(w, 3 / 2) / balls[i].mass;
+                            sumx += (balls[j].position.x - balls[k].position.x) * abs(balls[j].charge * balls[k].charge) / pow(w, 3 / 2) / balls[k].mass;
+                            sumy += (balls[j].position.y - balls[k].position.y) * abs(balls[j].charge * balls[k].charge)/ pow(w, 3 / 2) / balls[k].mass;
                         }
                     }
 
-                    balls[i].velocity.x += sumx * delta_t;
-                    balls[i].velocity.y += sumy * delta_t;
+                    balls[k].velocity.x += sumx * delta_t;
+                    balls[k].velocity.y += sumy * delta_t;
                 }
             }
+            //отскок шаров друг от друга
+            //Будем связывать новую СО с верхним шариком, строить матрицу перехода в новый базис,
+            // направляющий вектор прямой всегда выходит из центра верхнего шарика
+            //исходная СК начинается в верхнем левом углу окна
+            /*for(int k = 0; k < n_balls; k++){
+                for(int j = 0; j < n_balls; j++){
+                    if(k!=j){
+                        double dx = balls[k].position.x-balls[j].position.x;
+                        double dy = balls[k].position.y-balls[j].position.y;
+                        double R = balls[k].radius+balls[j].radius;
+                        if(dx*dx+dy*dy<=R*R+1e-16){     //шарики столкнулись.
+                            if()
+                        }
+                    }
+                }
+            }*/
         }
+
         // отображаем содержимое скрытого холста на экран
         window.display();
     }  
