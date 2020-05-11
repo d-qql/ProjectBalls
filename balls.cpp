@@ -52,56 +52,56 @@ int main()
     while (window.isOpen()){
         sf::Event event;
         while (window.pollEvent(event)){
-            if (event.type == sf::Event::MouseButtonPressed and (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl))){
-                if (event.mouseButton.button == sf::Mouse::Right){
-                    std::cout << "the right button was pressed" << std::endl;
-                    n_balls++;
-                    balls.resize(n_balls);
-                    balls[n_balls - 1].mass = 4;
-                    balls[n_balls - 1].radius = 5;
-                    balls[n_balls - 1].position.x = event.mouseButton.x;
-                    balls[n_balls - 1].position.y = event.mouseButton.y;
-                    balls[n_balls - 1].velocity = { 0, 0 };
-                    balls[n_balls - 1].charge = -3;
-                }
-
-                if (event.mouseButton.button == sf::Mouse::Left){
-                    std::cout << "the left button was pressed" << std::endl;
-                    n_balls++;
-                    balls.resize(n_balls);
-                    balls[n_balls - 1].mass = 1;
-                    balls[n_balls - 1].radius = 10;
-                    balls[n_balls - 1].position.x = event.mouseButton.x;
-                    balls[n_balls - 1].position.y = event.mouseButton.y;
-                    balls[n_balls - 1].velocity = { 0, 0 };
-                    balls[n_balls - 1].charge = 1;
-                }
-            }
             if (event.type == sf::Event::MouseButtonPressed){
                 if (event.mouseButton.button == sf::Mouse::Right){
-                    std::cout << "the right button was pressed" << std::endl;
-                    n_balls++;
-                    balls.resize(n_balls);
-                    balls[n_balls - 1].mass = 4;
-                    balls[n_balls - 1].radius = 5;
-                    balls[n_balls - 1].position.x = event.mouseButton.x;
-                    balls[n_balls - 1].position.y = event.mouseButton.y;
-                    balls[n_balls - 1].velocity = { 0, 0 };
-                    balls[n_balls - 1].charge = 3;
+                    if(sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)) {
+                        std::cout << "the right button + ctrl was pressed" << std::endl;
+                        n_balls++;
+                        balls.resize(n_balls);
+                        balls[n_balls - 1].mass = 4;
+                        balls[n_balls - 1].radius = 5;
+                        balls[n_balls - 1].position.x = event.mouseButton.x;
+                        balls[n_balls - 1].position.y = event.mouseButton.y;
+                        balls[n_balls - 1].velocity = {0, 0};
+                        balls[n_balls - 1].charge = -3;
+                    }else{
+                        std::cout << "the right button was pressed" << std::endl;
+                        n_balls++;
+                        balls.resize(n_balls);
+                        balls[n_balls - 1].mass = 4;
+                        balls[n_balls - 1].radius = 5;
+                        balls[n_balls - 1].position.x = event.mouseButton.x;
+                        balls[n_balls - 1].position.y = event.mouseButton.y;
+                        balls[n_balls - 1].velocity = { 0, 0 };
+                        balls[n_balls - 1].charge = 3;
+                    }
                 }
 
                 if (event.mouseButton.button == sf::Mouse::Left){
-                    std::cout << "the left button was pressed" << std::endl;
-                    n_balls++;
-                    balls.resize(n_balls);
-                    balls[n_balls - 1].mass = 10;
-                    balls[n_balls - 1].radius = 5;
-                    balls[n_balls - 1].position.x = event.mouseButton.x;
-                    balls[n_balls - 1].position.y = event.mouseButton.y;
-                    balls[n_balls - 1].velocity = { 0, 0 };
-                    balls[n_balls - 1].charge = 10;
+                    if(sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)) {
+                        std::cout << "the left button + ctrl was pressed" << std::endl;
+                        n_balls++;
+                        balls.resize(n_balls);
+                        balls[n_balls - 1].mass = 1;
+                        balls[n_balls - 1].radius = 10;
+                        balls[n_balls - 1].position.x = event.mouseButton.x;
+                        balls[n_balls - 1].position.y = event.mouseButton.y;
+                        balls[n_balls - 1].velocity = {0, 0};
+                        balls[n_balls - 1].charge = 1;
+                    }else{
+                        std::cout << "the left button was pressed" << std::endl;
+                        n_balls++;
+                        balls.resize(n_balls);
+                        balls[n_balls - 1].mass = 10;
+                        balls[n_balls - 1].radius = 5;
+                        balls[n_balls - 1].position.x = event.mouseButton.x;
+                        balls[n_balls - 1].position.y = event.mouseButton.y;
+                        balls[n_balls - 1].velocity = { 0, 0 };
+                        balls[n_balls - 1].charge = 10;
+                    }
                 }
             }
+
     }
         // В данном примере проверяем окно на закрытие
         if (event.type == sf::Event::Closed)
