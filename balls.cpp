@@ -5,6 +5,8 @@
 #include <ctime>
 #include <cmath>
 
+/*Some problems with creating balls while LControl+LeftClick(RightClick)
+Hope to make balls bounce one from another*/
 using namespace std;
 
 struct Ball
