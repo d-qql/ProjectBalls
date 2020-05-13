@@ -49,8 +49,8 @@
       <file leaf-file-name="balls.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/balls.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="196" column="62" lean-forward="true" selection-start-line="196" selection-start-column="62" selection-end-line="196" selection-end-column="62" />
+            <state relative-caret-position="79">
+              <caret line="162" column="37" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -63,6 +63,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>i</find>
+      <find>double</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -91,9 +92,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="951" />
+    <option name="y" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -168,7 +170,11 @@
       <workItem from="1588981262773" duration="90000" />
       <workItem from="1589133360544" duration="4347000" />
       <workItem from="1589195158976" duration="2181000" />
-      <workItem from="1589203891887" duration="5985000" />
+      <workItem from="1589203891887" duration="8744000" />
+      <workItem from="1589271621337" duration="125000" />
+      <workItem from="1589368767664" duration="2851000" />
+      <workItem from="1589375222883" duration="165000" />
+      <workItem from="1589402705029" duration="3270000" />
     </task>
     <task id="LOCAL-00001" summary="Some problems with creating balls while LControl+LeftClick(RightClick)&#10;Hope to make balls bounce one from another">
       <created>1589203947078</created>
@@ -184,11 +190,18 @@
       <option name="project" value="LOCAL" />
       <updated>1589207280538</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="FIXED problem with int i counter">
+      <created>1589214476251</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1589214476251</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18257000" />
+    <option name="totallyTimeSpent" value="27427000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -200,19 +213,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="762" y="0" width="781" height="830" extended-state="0" />
+    <frame x="761" y="-7" width="782" height="838" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49135447" visible="true" weight="0.045698926" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48407644" visible="true" weight="0.04966443" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32905984" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32763532" />
       <window_info anchor="bottom" id="CMake" order="7" weight="0.32905984" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33285302" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32905984" />
       <window_info id="Structure" order="1" sideWeight="0.507431" side_tool="true" weight="0.122934565" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32905984" />
-      <window_info id="Favorites" order="2" sideWeight="0.50864553" side_tool="true" visible="true" weight="0.045698926" />
+      <window_info id="Favorites" order="2" sideWeight="0.51592356" side_tool="true" visible="true" weight="0.04966443" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3988604" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -232,9 +245,90 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Some problems with creating balls while LControl+LeftClick(RightClick)&#10;Hope to make balls bounce one from another" />
     <MESSAGE value="FIXED problems with LControl. It is possible to create four different types of balls now" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIXED problems with LControl. It is possible to create four different types of balls now" />
+    <MESSAGE value="FIXED problem with int i counter" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIXED problem with int i counter" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" selection-start-column="32" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/balls.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3281">
+          <caret line="193" selection-start-line="193" selection-end-line="193" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" selection-start-column="32" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/balls.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3281">
+          <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" selection-start-column="32" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/balls.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="49" column="24" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" selection-start-column="32" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/balls.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="49" column="24" lean-forward="true" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -352,8 +446,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/balls.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="196" column="62" lean-forward="true" selection-start-line="196" selection-start-column="62" selection-end-line="196" selection-end-column="62" />
+        <state relative-caret-position="79">
+          <caret line="162" column="37" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
